@@ -56,3 +56,70 @@ mutation {
   } 
 }
 ```
+
+### Requête query avec une variable graphQL
+```graphql
+query student($id: Int, $subName: SubjectNameFilter) {
+    student(id: $id) {
+        email
+        firstName
+        lastName
+        learningSubjects(subjectNameFilter: $subName) {
+            id
+            subjectName
+        }
+        fullName
+    }
+}
+```
+
+### Variable
+```json
+{
+    "id": 1,
+    "subName": "All"
+}
+```
+
+### Requête mutation avec une variable graphQL
+```graphql
+mutation createStudent($createStudentRequest: CreateStudentRequest) {
+    createStudent(createStudentRequest: $createStudentRequest) {
+        id
+        firstName
+        lastName
+        email
+        street
+        city
+        learningSubjects(subjectNameFilter: All) {
+            id
+            subjectName
+            marksObtained
+        }
+        fullName
+    }
+}
+```
+
+### Variable
+```json
+{
+  "createStudentRequest": {
+    "firstName": "Alex",
+    "lastName": "Omar",
+    "email": "alexomar@gmail.com",
+    "street": "any street",
+    "city": "canada",
+    "subjectsLearning": [
+      {
+        "subjectName": "Java",
+        "marksObtained": 60.00
+      },
+      {
+        "subjectName": "MongoDB",
+        "marksObtained": 50.00
+      }
+    ]
+  }
+}
+```
