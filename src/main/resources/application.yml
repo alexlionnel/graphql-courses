@@ -1,0 +1,27 @@
+server:
+  port: 8090
+graphql:
+  servlet:
+    cors:
+      allowed-origins:
+        - "*"
+    mapping: /student-service
+graphiql:
+  mapping: /app-ui
+  endpoint:
+    graphql: /student-service
+
+spring:
+  datasource:
+    username: graphql
+    password: password
+    url: jdbc:postgresql://localhost:5432/postgres
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        enable_lazy_load_no_trans: true
+    show-sql: true
