@@ -16,8 +16,7 @@ type StudentResponse {
     firstName: String
     lastName: String
     email: String
-    street: String
-    city: String
+    address: AddressResponse
     learningSubjects(subjectNameFilter: SubjectNameFilter): [SubjectResponse]
     fullName: String
 }
@@ -26,6 +25,11 @@ type SubjectResponse {
     id: Int
     subjectName: String
     marksObtained: Float
+}
+
+type AddressResponse {
+    street: String
+    city: String
 }
 
 enum SubjectNameFilter {

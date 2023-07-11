@@ -1,31 +1,33 @@
 server:
   port: ${PORT:8090} #pour le déploiement sur heroku
-graphql:
-  servlet:
-    cors:
-      allowed-origins:
-        - "*"
-    mapping: /student-service
-graphiql:
-  mapping: /app-ui
-  endpoint:
-    graphql: /student-service
+
 
 spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/postgres
+    username: graphql
+    password: password
+    pool:
+      enabled: true
+
 #  datasource:
 #    username: cnvgusyzgftjul
 #    password: 00a879d515e7fa73611d6eebf89d225c07719fa7b18cd0fe149845e4dc9728ad
 #    url: jdbc:postgresql://ec2-3-211-221-185.compute-1.amazonaws.com:5432/d3kudaa7de8g0m
-  datasource:
-    username: graphql
-    password: password
-    url: jdbc:postgresql://localhost:5432/postgres
-  jpa:
-    hibernate:
-      ddl-auto: validate
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        format_sql: true
-        enable_lazy_load_no_trans: true
-    show-sql: true
+
+#  datasource:
+#    username: graphql
+#    password: password
+#    url: jdbc:postgresql://localhost:5432/postgres
+#  jpa:
+#    hibernate:
+#      ddl-auto: validate
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        format_sql: true
+#        enable_lazy_load_no_trans: true
+#    show-sql: true
+graphql:
+  graphiql:
+    enabled: true

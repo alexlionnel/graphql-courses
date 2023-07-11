@@ -7,8 +7,7 @@ data class StudentResponse(
     val firstName: String?,
     val lastName: String?,
     val email: String?,
-    val street: String?,
-    val city: String?,
+    val addressId: Long?,
     val learningSubjects: List<SubjectResponse>?,
     // for internal, do not put in schema
     val student: Student,
@@ -19,8 +18,7 @@ data class StudentResponse(
         student.firstName,
         student.lastName,
         student.email,
-        student.address?.street,
-        student.address?.city,
+        student.addressId,
         null,
         student,
         null

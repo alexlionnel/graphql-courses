@@ -1,22 +1,13 @@
 package io.gqlbrains.demo.graphqlcourses.entity
 
-import javax.persistence.*
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
 
-@Entity
-@Table(name = "subject")
+@Table("subject")
 class Subject(
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    val id: Long? = null,
-
-    @Column(name = "subject_name")
+    var id: Long? = null,
     val subjectName: String? = null,
-
-    @Column(name = "marks_obtained")
     val marksObtained: Double? = null,
-
-    @ManyToOne
-    @JoinColumn(name = "student_id")
-    val student: Student? = null
+    val studentId: Long? = null
 )

@@ -1,6 +1,6 @@
 package io.gqlbrains.demo.graphqlcourses.repository
 
 import io.gqlbrains.demo.graphqlcourses.entity.Address
-import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.repository.reactive.ReactiveCrudRepository
 
-interface AddressRepository: JpaRepository<Address, Long>
+interface AddressRepository: ReactiveCrudRepository<Address, Long>

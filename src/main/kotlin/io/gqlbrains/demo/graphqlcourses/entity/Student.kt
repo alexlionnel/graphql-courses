@@ -1,32 +1,18 @@
 package io.gqlbrains.demo.graphqlcourses.entity
 
 import io.gqlbrains.demo.graphqlcourses.request.CreateStudentRequest
-import javax.persistence.*
+import org.springframework.data.annotation.Id
+import org.springframework.data.annotation.Transient
+import org.springframework.data.relational.core.mapping.Table
 
-
-@Entity
-@Table(name = "student")
+@Table("student")
 class Student (
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    val id: Long? = null,
-
-    @Column(name = "first_name")
+    var id: Long? = null,
     val firstName: String? = null,
-
-    @Column(name = "last_name")
     val lastName: String? = null,
-
-    @Column(name = "email")
     val email: String? = null,
-
-    @OneToOne
-    @JoinColumn(name = "address_id")
-    var address: Address? = null,
-
-    @OneToMany(mappedBy = "student")
-    var learningSubjects: List<Subject>? = null
+    var addressId: Long? = null,
 ) {
 
     constructor(createStudentRequest: CreateStudentRequest): this(
