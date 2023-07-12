@@ -1,0 +1,18 @@
+mutation createCustomer($student: CreateStudentRequest) {
+    createStudent(createStudentRequest: $student) {
+        id
+        firstName
+        lastName
+        email
+        address {
+            city
+            street
+        }
+        learningSubjects(subjectNameFilter: Java) {
+            id
+            subjectName
+            marksObtained
+        }
+        fullName
+    }
+}

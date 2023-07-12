@@ -23,13 +23,6 @@ class StudentResponseResolver(
             .map { subject -> SubjectResponse(subject) }
             .collectList()
             .switchIfEmpty(Mono.just(emptyList()))
-        /*return Mono.fromSupplier {
-            studentResponse.student.learningSubjects?.let {
-                it.filter {
-                        subject -> subjectNameFilter == SubjectNameFilter.All || subject.subjectName.equals(subjectNameFilter.name)
-                }.map { subject -> SubjectResponse(subject) }
-            } ?: emptyList()
-        }*/
     }
 
     fun getAddress(studentResponse: StudentResponse): Mono<AddressResponse?> {
