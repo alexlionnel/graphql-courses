@@ -41,6 +41,11 @@
             <artifactId>graphql-spring-boot-starter</artifactId>
             <version>14.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.graphql-java-kickstart</groupId>
+            <artifactId>graphql-kickstart-spring-support</artifactId>
+            <version>14.1.0</version>
+        </dependency>
 
         <dependency>
             <groupId>com.graphql-java-kickstart</groupId>
@@ -65,11 +70,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--<dependency>
+        <dependency>
             <groupId>com.graphql-java-kickstart</groupId>
             <artifactId>graphql-spring-boot-starter-test</artifactId>
             <version>14.1.0</version>
-        </dependency>-->
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-test</artifactId>
